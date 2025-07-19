@@ -1,11 +1,10 @@
-import UserProfile from './UserProfile'
 const UserProfile = (props) => {
   return(
-    <>
-    <h2>{props.name}</h2>
-    <p>Age: {props.age}</p>
-    <p>Bio: {props.bio}</p>
-    </>
+    <div style={{padding:'10px',margin: '10px',border: '1px solid gray'}}>
+      <h2 style={{color:'blue'}}>{props.name}</h2>
+      <p style={{fontWeight:'bold'}}>Age: {props.age}</p>
+      <p style={{border:'2px solid black'}}>Bio: {props.bio}</p>
+    </div>
   );
 };
 
