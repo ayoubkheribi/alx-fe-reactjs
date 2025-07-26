@@ -1,28 +1,25 @@
-import { useRecipeStore } from './recipeStore';
+import React from "react";
+import { Link } from "react-router-dom";
+import { useRecipeStore } from "./recipeStore";
 
 const RecipeList = () => {
-  const recipes = useRecipeStore(state => state.recipes);
+  const filteredRecipes = useRecipeStore(state => state.filteredRecipes);
 
-    const formStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '1rem',
-    maxWidth: '400px',
-    margin: '0 auto',
-    padding: '1rem',
-    border: '1px solid #ccc', 
-    }
+  if (filteredRecipes.length === 0) {
+    return <p className="text-gray-500">No matching recipes found.</p>;
+  }
 
   return (
-    <div>
-      {recipes.map(recipe => (
-        <div style={formStyle}
-        key={recipe.id}>
-          <h3>{recipe.title}</h3>
-          <p>{recipe.description}</p>
-        </div>
+    <ul className="space-y-3">
+      {filteredRecipes.map((recipe) => (
+        <li key={recipe.id} className="border p-3 rounded shadow-sm bg-white">
+          <Link to={`/recipes/${recipe.id}`} className="text-lg font-semibold text-blue-600 hover:underline">
+            {recipe.title}
+          </Link>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };
+
 export default RecipeList;
