@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useRecipeStore } from "./recipeStore";
-import EditRecipe from "./EditRecipe";
+import EditRecipeForm from "./EditRecipeForm";
 import DeleteRecipeButton from "./DeleteRecipeButton";
 
 const RecipeDetails = ({ recipeId }) => {
@@ -13,33 +13,15 @@ const RecipeDetails = ({ recipeId }) => {
   if (!recipe) return <p>Recipe not found.</p>;
 
   return (
-    <div className="p-4 max-w-xl mx-auto bg-white rounded shadow">
+    <div>
       {isEditing ? (
-        <>
-          <h2 className="text-xl font-semibold mb-4">Edit Recipe</h2>
-          <EditRecipe
-            recipeId={recipeId}
-            onDone={() => setIsEditing(false)}
-          />
-        </>
+        <EditRecipeForm recipeId={id} onDone={() => setIsEditing(false)} />
       ) : (
         <>
-          <h2 className="text-2xl font-bold text-gray-800 mb-2">{recipe.title}</h2>
-          <p className="text-gray-600 mb-4">{recipe.description}</p>
-
-          <div className="flex gap-2">
-            <button
-              onClick={() => setIsEditing(true)}
-              className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600"
-            >
-              Edit
-            </button>
-
-            <DeleteRecipeButton
-              recipeId={recipeId}
-              onDelete={() => alert("Recipe deleted")} // or navigate away
-            />
-          </div>
+          <h1>{recipe.title}</h1>
+          <p>{recipe.description}</p>
+          <button onClick={() => setIsEditing(true)}>Edit</button>
+          <DeleteRecipeButton recipeId={id} />
         </>
       )}
     </div>

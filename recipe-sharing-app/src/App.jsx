@@ -1,22 +1,46 @@
-import React from 'react'
-import RecipeList from './components/RecipeList';
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { useRecipeStore } from "./components/recipeStore";
+import RecipeDetails from "./components/RecipeDetails";
 import AddRecipeForm from './components/AddRecipeForm';
-import RecipeDetails from './components/RecipeDetails';
-import EditRecipe from './components/EditRecipeForm';
-import DeleteRecipeButton from './components/DeleteRecipeButton';
+import RecipeList from './components/RecipeList'
 
-const App = () => {
+function App() {
+  const setRecipes = useRecipeStore(state => state.setRecipes);
+
+  useEffect(() => {
+    setRecipes([
+      {
+        id: "1",
+        title: "Tacos",
+        description: "Delicious Mexican street food"
+      },
+      {
+        id: "2",
+        title: "Pizza",
+        description: "Cheesy Italian classic"
+      }
+    ]);
+  }, []);
+
+  const recipes = useRecipeStore(state => state.recipes);
+
   return (
-    <div>
-      <RecipeList/>
-      <AddRecipeForm/>
-      <RecipeDetails>
-        <EditRecipe />
-        <DeleteRecipeButton />
-      </RecipeDetails>
-
-    </div>
-  )
+    <Router>
+      <div>
+        <h1>🍽️ Recipe App</h1>
+        <Routes>
+          <Route
+            path="/"
+            element={
+                <><AddRecipeForm /><RecipeList /></>
+            }
+          />
+          <Route path="/recipes/:id" element={<RecipeDetails />} />
+        </Routes>
+      </div>
+    </Router>
+  );
 }
 
 export default App;

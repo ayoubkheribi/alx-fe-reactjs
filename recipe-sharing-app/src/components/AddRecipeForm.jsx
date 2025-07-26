@@ -13,20 +13,33 @@ const AddRecipeForm = () => {
     setDescription('');
   };
 
+  const formStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '1rem',
+    maxWidth: '400px',
+    margin: '0 auto',
+    padding: '1rem',
+    border: '1px solid #ccc', 
+
+}
+
   return (
-    <form onSubmit={handleSubmit}>
-      <input
+    <form 
+     onSubmit={handleSubmit}>
+      <input style={formStyle}
         type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         placeholder="Title"
       />
-      <textarea
+      <textarea style={formStyle}
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         placeholder="Description"
       />
-      <button type="submit">Add Recipe</button>
+      <button style={formStyle}
+       type="submit">Add Recipe</button>
     </form>
   );
 };
