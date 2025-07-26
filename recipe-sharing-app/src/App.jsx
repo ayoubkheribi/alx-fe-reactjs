@@ -1,40 +1,29 @@
-import React, { useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import { useRecipeStore } from "./components/recipeStore";
-import RecipeDetails from "./components/RecipeDetails";
-import AddRecipeForm from './components/AddRecipeForm';
-import RecipeList from './components/RecipeList'
-import SearchBar from "./components/SearchBar";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AddRecipeForm from "./AddRecipeForm";
+import RecipeList from "./RecipeList";
+import RecipeDetails from "./RecipeDetails";
+import SearchBar from "./SearchBar";
+import FavoritesList from "./FavoritesList";
+import RecommendationsList from "./RecommendationsList";
 
 function App() {
-  const setRecipes = useRecipeStore(state => state.setRecipes);
-
-  useEffect(() => {
-    setRecipes([
-      {
-        id: "1",
-        title: "Tacos",
-        description: "Delicious Mexican street food"
-      },
-      {
-        id: "2",
-        title: "Pizza",
-        description: "Cheesy Italian classic"
-      }
-    ]);
-  }, []);
-
-  const recipes = useRecipeStore(state => state.recipes);
-
   return (
     <Router>
-      <div>
-        <h1>🍽️ Recipe App</h1>
+      <div className="p-6 max-w-3xl mx-auto bg-gray-50 min-h-screen">
+        <h1 className="text-3xl font-bold mb-6">🍽️ Recipe App</h1>
+
         <Routes>
           <Route
             path="/"
             element={
-                <><AddRecipeForm /><SearchBar /><RecipeList /></>
+              <>
+                <AddRecipeForm />
+                <SearchBar />
+                <RecipeList />
+                <FavoritesList />
+                <RecommendationsList />
+              </>
             }
           />
           <Route path="/recipes/:id" element={<RecipeDetails />} />
