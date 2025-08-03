@@ -1,52 +1,111 @@
-import React from 'react'
-import { useState } from 'react';
-import fetchUserData from '../services/githubService';
+import { useState } from "react";
+import { fetchAdvancedUsers, fetchUserDetails } from "../services/githubService";
 
 const Search = () => {
-
-  const [username, setUsername] = useState('');
-  const [userData, setUserData] = useState(null);
+  const [username, setUsername] = useState("");
+  const [location, setLocation] = useState("");
+  const [minRepos, setMinRepos] = useState("");
+  const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmite = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    setIsLoading(true);
+    setLoading(true);
     setError(null);
-    setUserData(null);
+    setResults([]);
 
     try {
-      const data = await fetchUserData(username);
-      setUserData(data);
+
+      let query = "";
+      if (username) query += `${username}+`;
+      if (location) query += `location:${location}+`;
+      if (minRepos) query += `repos:>=${minRepos}`;
+
+      const users = await fetchAdvancedUsers(query);
+      const detailedUsers = await Promise.all(
+        users.map(async (user) => {
+          return await fetchUserDetails(user.login);
+        })
+      );
+
+      setResults(detailedUsers);
     } catch (err) {
-      setError('Looks like we cant find the user');
+      console.error(err);
+      setError("Something went wrong while fetching users.");
     } finally {
-      setIsLoading(false);
+      setLoading(false);
     }
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmite}>
-        <input type='text' value={username} onChange={(e) => setUsername(e.target.value)} placeholder='Search for GitHub users' />
-
-        <button type='submit'>Search</button>
+    <div className="max-w-xl mx-auto p-6">
+      <form onSubmit={handleSubmit} className="mb-6 space-y-4">
+        <input
+          type="text"
+          placeholder="Username"
+          className="w-full p-2 border rounded"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Location"
+          className="w-full p-2 border rounded"
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+        />
+        <input
+          type="number"
+          placeholder="Minimum Repositories"
+          className="w-full p-2 border rounded"
+          value={minRepos}
+          onChange={(e) => setMinRepos(e.target.value)}
+        />
+        <button
+          type="submit"
+          className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
+        >
+          Search
+        </button>
       </form>
-      {isLoading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
-      {userData && (
-      <div>
-        <img src={userData.avatar_url} alt="Avatar" width="100" />
-        <h2>{userData.name ? userData.name : userData.login}</h2>
-        <a href={userData.html_url} target="_blank" rel="noopener noreferrer">
-          View GitHub Profile
-        </a>
-      </div>
-)}
 
-    </>
-  )
-}
+      {loading && <p>Loading...</p>}
+      {error && <p className="text-red-600">{error}</p>}
+      {!loading && results.length === 0 && !error && <p>No users found.</p>}
+
+      <div className="space-y-6">
+        {results.map((user) => (
+          <div
+            key={user.id}
+            className="border rounded p-4 flex items-start gap-4 shadow"
+          >
+            <img
+              src={user.avatar_url}
+              alt="avatar"
+              className="w-20 h-20 rounded-full"
+            />
+            <div>
+              <h2 className="text-xl font-bold">{user.name || user.login}</h2>
+              <p><strong>Location:</strong> {user.location || "N/A"}</p>
+              <p><strong>Company:</strong> {user.company || "N/A"}</p>
+              <p><strong>Bio:</strong> {user.bio || "N/A"}</p>
+              <p><strong>Repos:</strong> {user.public_repos}</p>
+              <p><strong>Followers:</strong> {user.followers} | <strong>Following:</strong> {user.following}</p>
+              <a
+                href={user.html_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 underline"
+              >
+                View GitHub Profile
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export default Search;

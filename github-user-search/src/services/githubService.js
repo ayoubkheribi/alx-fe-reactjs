@@ -1,13 +1,11 @@
-import axios from 'axios';
+import axios from "axios";
 
-const fetchUserData = async (username) => {
-  try {
-    const response = await axios.get(`https://api.github.com/users/${username}`);
-    return response.data;
-  } catch (error) {
-    console.error('Looks like we cant find the user:', error);
-    throw error;
-  };
+export const fetchAdvancedUsers = async (query) => {
+  const res = await axios.get(`https://api.github.com/search/users?q=${query}`);
+  return res.data.items; // list of users
 };
 
-export default fetchUserData;
+export const fetchUserDetails = async (username) => {
+  const res = await axios.get(`https://api.github.com/users/${username}`);
+  return res.data;
+};
