@@ -1,111 +1,107 @@
-import { useState } from "react";
-import { fetchAdvancedUsers, fetchUserDetails } from "../services/githubService";
+import React, { useState } from 'react';
+import { fetchUserData } from '../services/githubService';
 
-const Search = () => {
-  const [username, setUsername] = useState("");
-  const [location, setLocation] = useState("");
-  const [minRepos, setMinRepos] = useState("");
-  const [results, setResults] = useState([]);
+function Search() {
+  const [username, setUsername] = useState('');
+  const [location, setLocation] = useState('');
+  const [minRepos, setMinRepos] = useState('');
+  const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!username.trim() && !location.trim() && !minRepos) {
+      setError('Please enter at least one search criteria.');
+      return;
+    }
+
     setLoading(true);
     setError(null);
-    setResults([]);
+    setUsers([]);
 
     try {
-
-      let query = "";
-      if (username) query += `${username}+`;
-      if (location) query += `location:${location}+`;
-      if (minRepos) query += `repos:>=${minRepos}`;
-
-      const users = await fetchAdvancedUsers(query);
-      const detailedUsers = await Promise.all(
-        users.map(async (user) => {
-          return await fetchUserDetails(user.login);
-        })
-      );
-
-      setResults(detailedUsers);
+      const data = await fetchUserData(username.trim(), location.trim(), minRepos);
+      if (data.total_count === 0) {
+        setError('Looks like we cant find the user');
+      } else {
+        setUsers(data.items);
+      }
     } catch (err) {
-      console.error(err);
-      setError("Something went wrong while fetching users.");
+      setError('Looks like we cant find the user');
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="max-w-xl mx-auto p-6">
-      <form onSubmit={handleSubmit} className="mb-6 space-y-4">
+    <div className="max-w-xl mx-auto p-6 bg-gray-100 rounded-lg shadow-md my-6">
+      <h1 className="text-2xl font-semibold mb-6 text-center">GitHub Advanced User Search</h1>
+      <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
         <input
           type="text"
-          placeholder="Username"
-          className="w-full p-2 border rounded"
+          placeholder="Username (optional)"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          className="p-2 border border-gray-400 rounded"
         />
         <input
           type="text"
-          placeholder="Location"
-          className="w-full p-2 border rounded"
+          placeholder="Location (optional)"
           value={location}
           onChange={(e) => setLocation(e.target.value)}
+          className="p-2 border border-gray-400 rounded"
         />
         <input
           type="number"
-          placeholder="Minimum Repositories"
-          className="w-full p-2 border rounded"
+          min="0"
+          placeholder="Minimum Public Repos (optional)"
           value={minRepos}
           onChange={(e) => setMinRepos(e.target.value)}
+          className="p-2 border border-gray-400 rounded"
         />
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
+          className="bg-blue-600 hover:bg-blue-700 text-white py-2 rounded transition"
         >
           Search
         </button>
       </form>
 
-      {loading && <p>Loading...</p>}
-      {error && <p className="text-red-600">{error}</p>}
-      {!loading && results.length === 0 && !error && <p>No users found.</p>}
+      {loading && <p className="mt-4 text-center">Loading...</p>}
+      {error && <p className="mt-4 text-center text-red-600">{error}</p>}
 
-      <div className="space-y-6">
-        {results.map((user) => (
-          <div
-            key={user.id}
-            className="border rounded p-4 flex items-start gap-4 shadow"
-          >
-            <img
-              src={user.avatar_url}
-              alt="avatar"
-              className="w-20 h-20 rounded-full"
-            />
-            <div>
-              <h2 className="text-xl font-bold">{user.name || user.login}</h2>
-              <p><strong>Location:</strong> {user.location || "N/A"}</p>
-              <p><strong>Company:</strong> {user.company || "N/A"}</p>
-              <p><strong>Bio:</strong> {user.bio || "N/A"}</p>
-              <p><strong>Repos:</strong> {user.public_repos}</p>
-              <p><strong>Followers:</strong> {user.followers} | <strong>Following:</strong> {user.following}</p>
-              <a
-                href={user.html_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-500 underline"
-              >
-                View GitHub Profile
-              </a>
-            </div>
-          </div>
+      <div className="mt-6 space-y-4">
+        {users.map((user) => (
+          <UserCard key={user.id} user={user} />
         ))}
       </div>
     </div>
   );
-};
+}
+
+function UserCard({ user }) {
+  return (
+    <div className="bg-white p-4 rounded shadow flex items-center space-x-4">
+      <img
+        src={user.avatar_url}
+        alt={user.login}
+        className="w-16 h-16 rounded-full"
+      />
+      <div>
+        <h2 className="text-lg font-semibold">{user.login}</h2>
+        <a
+          href={user.html_url}
+          target="_blank"
+          rel="noreferrer"
+          className="text-blue-500 underline"
+        >
+          View Profile
+        </a>
+      </div>
+    </div>
+  );
+}
 
 export default Search;
