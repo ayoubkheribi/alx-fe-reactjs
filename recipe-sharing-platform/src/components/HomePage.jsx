@@ -1,41 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import recipesData from "../data.json"; 
 
-const HomePage = () => {
+export const HomePage = () => {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    fetch('/data.json')
-      .then((res) => res.json())
-      .then((data) => setRecipes(data))
-      .catch((err) => console.error('Failed to load recipes:', err));
+    setRecipes(recipesData); 
   }, []);
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6 text-center">Recipe Sharing Platform</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {recipes.map((recipe) => (
-          <div key={recipe.id} className="bg-white rounded-lg hover:bg-blue-500 shadow-md p-6 flex flex-col">
-            <h2 className="text-xl font-semibold mb-2">{recipe.title}</h2>
-            {recipe.image && (
-              <img
-                src={recipe.image}
-                alt={recipe.title}
-                className="w-full h-48 object-cover rounded mb-4"
-              />
-            )}
-            <p className="text-gray-700 mb-2 flex-1">{recipe.summary}</p>
-            <div>
-              <span className="font-bold">Ingredients:</span>
-              <ul className="list-disc list-inside">
-                {recipe.ingredients.map((ingredient, idx) => (
-                  <li key={idx}>{ingredient}</li>
-                ))}
-              </ul>
-            </div>
+    <div className="text-white grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2 p-2 ">
+      {recipes.map((recipe) => (
+        <Link
+          to={`/recipe/${recipe.id}`}
+          className="block h-full"
+          key={recipe.id}
+        >
+          <div className="max-w-sm mx-auto bg-gray-800 p-4 rounded-lg shadow flex flex-col h-full">
+            <h2 className="text-center mb-2">{recipe.title}</h2>
+            <img
+              src={recipe.image}
+              alt={recipe.title}
+              className="mb-2 w-36 h-36 object-cover rounded-full mx-auto bg-white overflow-hidden shadow-md hover:shadow-xl hover:scale-105 transition-transform duration-300"
+            />
+            <p className="text-sm">{recipe.summary}</p>
           </div>
-        ))}
-      </div>
+        </Link>
+      ))}
     </div>
   );
 };

@@ -1,20 +1,284 @@
 [
   {
     "id": 1,
-    "title": "Spaghetti Carbonara",
-    "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-    "image": "https://via.placeholder.com/150"
+    "title": "Jollof Rice",
+    "summary": "A West African rice dish cooked in a rich tomato and pepper sauce, often served with chicken or fish.",
+    "image": "https://i.imgur.com/nJpgLqg.jpeg",
+    "ingredients": [
+      "2 cups long-grain parboiled rice (e.g., Golden Sella)",
+      "1/4 cup vegetable oil",
+      "1 large onion, finely chopped",
+      "3 medium tomatoes, blended",
+      "1 large red bell pepper, blended",
+      "2 Scotch bonnet peppers (ata rodo), blended",
+      "3 tablespoons tomato paste",
+      "2 cups chicken stock",
+      "2 teaspoons curry powder",
+      "1 teaspoon dried thyme",
+      "2 bay leaves",
+      "Salt, to taste",
+      "Black pepper, to taste"
+    ],
+    "instructions": [
+      "Rinse the rice in cold water until the water runs clear, then set aside.",
+      "Heat vegetable oil in a large pot over medium heat and sauté half of the chopped onions until fragrant.",
+      "Add the tomato paste and fry for 2–3 minutes to reduce its raw taste.",
+      "Stir in the blended tomatoes, red bell pepper, and Scotch bonnet peppers. Cook for 10–15 minutes, stirring occasionally, until the sauce thickens and the oil begins to separate.",
+      "Season the sauce with curry powder, thyme, bay leaves, salt, and black pepper. Stir well.",
+      "Pour in the chicken stock and bring the mixture to a gentle boil.",
+      "Add the rinsed rice to the pot, stir to coat evenly with the sauce, then reduce the heat to low.",
+      "Cover with a tight-fitting lid (you can place foil under the lid to trap steam) and cook for 20–25 minutes, checking occasionally to ensure it doesn’t burn.",
+      "Once the rice is cooked and liquid absorbed, stir gently to combine, add the remaining chopped onions, and let it steam for another 5 minutes.",
+      "Remove bay leaves and serve hot, optionally with grilled chicken or fried plantains."
+    ]
   },
   {
     "id": 2,
-    "title": "Chicken Tikka Masala",
-    "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-    "image": "https://via.placeholder.com/150"
+    "title": "Egusi Soup",
+    "summary": "A hearty soup made with ground melon seeds, leafy vegetables, and assorted meats, served with pounded yam or fufu.",
+    "image": "https://i.imgur.com/gYW1i2I.jpeg",
+    "ingredients": [
+      "2 cups ground egusi (melon seeds)",
+      "500g assorted meats (beef, goat meat, tripe, etc.)",
+      "200g stockfish (pre-soaked)",
+      "200g dried fish",
+      "1 cup palm oil",
+      "2 tablespoons ground crayfish",
+      "2 scotch bonnet peppers (blended)",
+      "2 medium onions (1 chopped, 1 blended)",
+      "2 cups chopped spinach or pumpkin leaves (ugu)",
+      "2 tablespoons locust beans (iru)",
+      "4 cups meat stock",
+      "Salt, to taste",
+      "Seasoning cubes or powder, to taste"
+    ],
+    "instructions": [
+      "Season and boil the assorted meats with onions, seasoning cubes, and salt until tender. Set aside, keeping the stock.",
+      "Heat palm oil in a large pot over medium heat, then add the chopped onions and fry until translucent.",
+      "Add the blended onions and peppers, fry for about 5–7 minutes until the oil begins to separate.",
+      "Stir in the ground egusi and fry for another 8–10 minutes, stirring constantly to avoid burning.",
+      "Add the meat stock gradually, stirring to create a thick, rich soup base.",
+      "Add the cooked meats, stockfish, and dried fish. Stir and simmer for 10 minutes.",
+      "Mix in the ground crayfish and locust beans (iru) for added flavor.",
+      "Finally, add the chopped spinach or pumpkin leaves, stir gently, and simmer for 3–5 minutes.",
+      "Adjust salt and seasoning to taste, then serve hot with pounded yam, eba, or fufu."
+    ]
   },
   {
     "id": 3,
-    "title": "Vegetable Stir Fry",
-    "summary": "A quick and healthy stir fry with seasonal vegetables.",
-    "image": "https://via.placeholder.com/150"
+    "title": "Suya",
+    "summary": "Spicy skewered beef grilled to perfection, a popular Nigerian street food.",
+    "image": "https://i.imgur.com/fJPYTOB.jpeg",
+    "ingredients": [
+      "500g beef (sirloin or flank steak)",
+      "3 tablespoons ground roasted peanuts (unsalted)",
+      "2 tablespoons suya spice mix (yaji)",
+      "1 teaspoon cayenne pepper or paprika (optional for extra heat)",
+      "2 tablespoons vegetable oil",
+      "1 teaspoon salt (adjust to taste)",
+      "1 medium onion, sliced (for serving)",
+      "2 medium tomatoes, sliced (for serving)",
+      "Wooden skewers (soaked in water for 30 minutes)"
+    ],
+    "instructions": [
+      "Cut the beef into thin strips, about 1 cm thick, for quick and even grilling.",
+      "In a bowl, mix the ground roasted peanuts, suya spice mix, cayenne pepper (if using), vegetable oil, and salt to form a thick paste.",
+      "Coat the beef strips thoroughly with the spice paste, ensuring every piece is well-covered.",
+      "Cover and marinate for at least 30 minutes, or refrigerate overnight for deeper flavor.",
+      "Thread the marinated beef strips onto the soaked wooden skewers.",
+      "Preheat a grill, barbecue, or oven broiler to medium-high heat.",
+      "Grill the skewers for about 5–7 minutes on each side, brushing lightly with oil, until the beef is cooked through and slightly charred.",
+      "Serve hot with sliced onions and tomatoes on the side. Optionally sprinkle with extra suya spice mix before serving."
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Efo Riro",
+    "summary": "A rich spinach and tomato stew cooked with assorted meats and seasonings.",
+    "image": "https://i.imgur.com/musFQKk.jpeg",
+    "ingredients": [
+      "500g spinach (fresh or frozen) or Nigerian pumpkin leaves (ugu)",
+      "500g assorted meats (beef, goat meat, tripe)",
+      "200g stockfish (pre-soaked)",
+      "200g dried fish",
+      "1 cup palm oil",
+      "3 medium tomatoes, blended",
+      "2 large red bell peppers, blended",
+      "2 Scotch bonnet peppers (ata rodo), blended",
+      "2 medium onions (1 chopped, 1 blended)",
+      "2 tablespoons ground crayfish",
+      "2 tablespoons locust beans (iru)",
+      "2 seasoning cubes (or to taste)",
+      "Salt, to taste"
+    ],
+    "instructions": [
+      "Season and boil the assorted meats with chopped onions, seasoning cubes, and salt until tender. Set aside, keeping the meat stock.",
+      "In a large pot, heat palm oil over medium heat, then add chopped onions and fry until fragrant.",
+      "Add the blended tomatoes, red bell peppers, Scotch bonnet peppers, and the second onion. Fry for 10–12 minutes, stirring occasionally, until the oil begins to separate from the sauce.",
+      "Stir in the locust beans (iru) and ground crayfish for extra flavor.",
+      "Add the cooked meats, stockfish, and dried fish to the pot. Pour in the reserved meat stock and simmer for 5–7 minutes.",
+      "Add the spinach or ugu leaves, stir gently, and cook for another 3–5 minutes until the leaves are wilted but still vibrant green.",
+      "Adjust salt and seasoning to taste, then serve hot with pounded yam, eba, or rice."
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Moi Moi",
+    "summary": "A steamed bean pudding made from blended beans, peppers, onions, and spices.",
+    "image": "https://i.imgur.com/F8is6cE.jpeg",
+    "ingredients": [
+      "3 cups peeled beans (black-eyed peas or brown beans)",
+      "2 red bell peppers",
+      "2 Scotch bonnet peppers (ata rodo)",
+      "1 large onion",
+      "1/2 cup vegetable oil or palm oil",
+      "2 tablespoons ground crayfish (optional)",
+      "2 seasoning cubes (or to taste)",
+      "1 teaspoon salt (or to taste)",
+      "2–3 cups warm water or stock (for blending)",
+      "Foil, ramekins, banana leaves, or moi moi pouches (for steaming)"
+    ],
+    "instructions": [
+      "Soak the peeled beans in water for about 10 minutes, then rinse and drain.",
+      "In a blender, combine the beans, red bell peppers, Scotch bonnet peppers, onion, and warm water or stock. Blend until very smooth.",
+      "Pour the blended mixture into a large bowl and add vegetable oil or palm oil, ground crayfish, seasoning cubes, and salt. Stir well to combine.",
+      "Adjust the consistency of the batter by adding more water or stock if necessary; it should be thick but pourable.",
+      "Portion the mixture into greased ramekins, foil wraps, banana leaves, or moi moi pouches.",
+      "Arrange the portions in a large pot with a steaming rack or improvised base to keep them above water level.",
+      "Steam over medium heat for 45–60 minutes, checking occasionally and adding hot water as needed to maintain steam.",
+      "Test for doneness by inserting a toothpick or skewer into the center; it should come out clean.",
+      "Serve hot as a main dish or side with rice, bread, or pap."
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Bitterleaf Soup",
+    "summary": "A traditional Nigerian soup made with bitter leaves, assorted meats, stockfish, and thickened with cocoyam paste.",
+    "image": "https://i.imgur.com/jRvKI34.jpeg",
+    "ingredients": [
+      "500g assorted meats (beef, goat meat, tripe, etc.)",
+      "200g stockfish (pre-soaked)",
+      "200g dried fish",
+      "2 cups washed bitter leaves (fresh or dried)",
+      "8 medium cocoyams (ede) or 1 cup cocoyam flour",
+      "1 cup palm oil",
+      "2 tablespoons ground crayfish",
+      "2–3 Scotch bonnet peppers (blended)",
+      "2 seasoning cubes (or to taste)",
+      "Salt, to taste",
+      "Water or meat stock (as needed)"
+    ],
+    "instructions": [
+      "Season and boil the assorted meats with onions, seasoning cubes, and salt until tender. Add stockfish midway through cooking and continue until both are soft.",
+      "If using fresh cocoyam, peel, wash, and boil until soft. Pound into a smooth paste. If using cocoyam flour, mix with hot water to form a paste.",
+      "Add the palm oil to the pot of meat and stock, then add the crayfish and blended peppers. Stir well.",
+      "Introduce the cocoyam paste in small lumps, cover, and allow it to dissolve slowly, thickening the soup.",
+      "Add the dried fish and washed bitter leaves. Stir gently to combine.",
+      "Simmer for 10–15 minutes on low heat, adjusting thickness with water or stock if necessary.",
+      "Taste and adjust seasoning with salt and more seasoning cubes if needed.",
+      "Serve hot with pounded yam, eba, or fufu."
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Boli",
+    "summary": "Charcoal-roasted plantains, often served with groundnut sauce or pepper sauce.",
+    "image": "https://i.imgur.com/N3c7AMp.jpeg",
+    "ingredients": [
+      "4 ripe plantains",
+      "1/2 cup groundnuts (peanuts), roasted and peeled",
+      "2 tablespoons pepper sauce (optional)",
+      "Salt to taste"
+    ],
+    "instruction": [
+      "Preheat a charcoal grill or stovetop grill.",
+      "Peel the plantains and place them directly on the grill.",
+      "Roast, turning occasionally, until all sides are charred and the plantains are tender.",
+      "Serve hot with roasted groundnuts or pepper sauce."
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Okra Soup",
+    "summary": "A thick, slippery soup made from okra pods, palm oil, and assorted meats or fish.",
+    "image": "https://i.imgur.com/g9Kcj0n.jpeg",
+    "ingredients": [
+      "500g fresh okra, finely chopped or grated",
+      "300g assorted meats (beef, goat meat, tripe, etc.)",
+      "200g stockfish (pre-soaked)",
+      "200g fresh or smoked fish",
+      "1/2 cup palm oil",
+      "2 tablespoons ground crayfish",
+      "2 scotch bonnet peppers, blended",
+      "1 medium onion, chopped",
+      "2 cups spinach or ugu leaves, chopped",
+      "4 cups meat or fish stock",
+      "Salt, to taste",
+      "Seasoning cubes or powder, to taste"
+    ],
+    "instructions": [
+      "Season and boil the assorted meats with onions, seasoning cubes, and salt until tender. Set aside, keeping the stock.",
+      "Add the stockfish and fresh or smoked fish to the pot and cook for 5–7 minutes.",
+      "Pour in the palm oil, blended peppers, and crayfish, then stir well and simmer for 5 minutes.",
+      "Add the chopped okra and stir continuously for 3–5 minutes to release its natural thick, slippery texture.",
+      "Mix in the chopped spinach or ugu leaves, stir, and simmer for an additional 2–3 minutes.",
+      "Taste and adjust salt and seasoning if needed, then serve hot with eba, fufu, or pounded yam."
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Pounded Yam and Nsala Soup",
+    "summary": "Smooth, stretchy pounded yam served with a light peppery white soup made with fish or chicken.",
+    "image": "https://i.imgur.com/VeBT9KP.jpeg",
+    "ingredients": [
+      "1 large catfish (or 1 whole chicken, cut into pieces)",
+      "2 tablespoons ground crayfish",
+      "2 tablespoons ground uziza seeds (optional for extra flavor)",
+      "1–2 scotch bonnet peppers, blended",
+      "1 medium onion, chopped",
+      "1–2 seasoning cubes, to taste",
+      "Salt, to taste",
+      "5–6 utazi leaves (or bitterleaf), finely shredded",
+      "1/2 cup thickener (pounded yam, yam flour paste, or cocoyam paste)",
+      "4 cups water or stock",
+      "For pounded yam: 4 cups yam (peeled and cut into chunks) or yam flour"
+    ],
+    "instructions": [
+      "Clean the catfish by rubbing with salt or hot water to remove the slime. Rinse thoroughly. If using chicken, wash and set aside.",
+      "In a pot, place the fish or chicken, onions, seasoning cubes, salt, and blended pepper. Add water or stock, then cook until tender (fish cooks faster, so be careful not to overcook).",
+      "Add the ground crayfish and ground uziza seeds, stir, and simmer for 5 minutes.",
+      "Add the thickener (pounded yam, yam flour paste, or cocoyam paste) in small portions, stirring until the soup reaches your desired thickness.",
+      "Mix in the shredded utazi leaves for a slightly bitter, aromatic flavor.",
+      "Simmer for another 2–3 minutes, adjust seasoning, and remove from heat.",
+      "For pounded yam: Boil the yam chunks until soft, then pound in a mortar until smooth and stretchy, or prepare according to yam flour package instructions.",
+      "Serve the Nsala soup hot with freshly pounded yam."
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Nkwobi",
+    "summary": "A spicy cow foot delicacy cooked with palm oil, potash, and traditional spices.",
+    "image": "https://i.imgur.com/j2Ma4lP.jpeg",
+    "ingredients": [
+      "2 kg cow foot (cut into pieces)",
+      "2 tablespoons powdered potash (Akanwu)",
+      "1 cup palm oil",
+      "2 tablespoons ground crayfish",
+      "2 seasoning cubes",
+      "1 teaspoon ground calabash nutmeg (Ehuru)",
+      "2 tablespoons ground pepper",
+      "1 medium onion (chopped)",
+      "Salt (to taste)",
+      "Sliced Utazi leaves (for garnish)"
+    ],
+    "instructions": [
+      "Wash the cow foot thoroughly and place in a pot. Add chopped onions, seasoning cubes, and salt. Add enough water to cover and cook until tender.",
+      "In a small bowl, dissolve the potash in a little water. Strain to remove particles.",
+      "Pour the palm oil into a clean pot or bowl. Gradually add the potash water while stirring until the mixture becomes thick and changes to a yellowish color.",
+      "Add ground crayfish, ground pepper, and ground calabash nutmeg into the palm oil mixture and stir well.",
+      "Add the cooked cow foot (with a little stock) into the palm oil mixture and mix thoroughly until all pieces are coated.",
+      "Simmer on low heat for 5–10 minutes to allow the flavors to blend.",
+      "Serve hot in a bowl, garnished with sliced Utazi leaves."
+    ]
   }
 ]
