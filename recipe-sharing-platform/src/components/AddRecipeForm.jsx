@@ -97,7 +97,7 @@ export const AddRecipeForm = () => {
         <div className="text-center">
           <button
             type="submit"
-            className="bg-green-600 hover:bg-green-700 transition-colors px-6 py-2 rounded font-semibold"
+            className="bg-green-500 hover:bg-green-700 transition-colors px-6 py-2 rounded font-semibold"
           >
             Add Recipe
           </button>
