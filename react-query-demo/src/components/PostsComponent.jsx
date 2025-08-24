@@ -22,6 +22,7 @@ export default function PostsComponent() {
     refetchOnWindowFocus: true,
     placeholderData: (prev) => prev, 
     cacheTime: 1000 * 60 * 10,
+    keepPreviousData: true,
   });
 
   if (isLoading) return <p>Loading posts...</p>;
