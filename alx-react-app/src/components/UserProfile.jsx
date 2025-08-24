@@ -1,3 +1,4 @@
+import UserProfile from './UserProfile'
 const UserProfile = (props) => {
   return(
     <>
