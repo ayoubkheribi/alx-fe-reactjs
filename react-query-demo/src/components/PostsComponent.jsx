@@ -21,6 +21,7 @@ export default function PostsComponent() {
     gcTime: 1000 * 60 * 5, 
     refetchOnWindowFocus: true,
     placeholderData: (prev) => prev, 
+    cacheTime: 1000 * 60 * 10,
   });
 
   if (isLoading) return <p>Loading posts...</p>;
